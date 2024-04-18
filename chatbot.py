@@ -8,11 +8,11 @@ import openai
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-st.title("Chatbot : Chatting with the GPT bot")
-st.subheader("AI Tutor:")
+st.title("GPT")
+#st.subheader("小艾:")
 
 model = st.selectbox(
-    "Select a model",
+    "选择模型",
     ("gpt-3.5-turbo", "gpt-4"),
     disabled=True
 )
@@ -22,7 +22,7 @@ if 'generated' not in st.session_state:
 if 'past' not in st.session_state:
     st.session_state['past'] = []
 
-query = st.text_input("Query: ", key="input")
+query = st.text_area("提问: ", key="input")
 
 if 'messages' not in st.session_state:
     st.session_state['messages'] = get_initial_message()
